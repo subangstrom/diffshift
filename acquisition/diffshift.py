@@ -23,14 +23,14 @@ class Diffshift():
         numy = math.ceil((yf - y0)/(size*(1-overlap)))
         x = np.linspace(x0,xf,numx)
         y = np.linspace(y0,yf,numy)
-        xx,yy = np.meshgrid(x,y)
+        xx, yy = np.meshgrid(x,y)
         positions = [xx.reshape((1,-1))[0],yy.reshape((1,-1))[0]]
         positions = list(map(tuple, zip(*positions)))
         return positions
 
-    def rotationcorrection(self,shifts,angle=22.11):
+    def rotationcorrection(self, shifts, angle=22.11):
         shiftlist = []
-        for shiftx,shifty in shifts:
+        for shiftx, shifty in shifts:
             xshift_old = shiftx*np.cos(angle*np.pi/180) - shifty*np.sin(angle*np.pi/180)
             yshift_old = shiftx*np.sin(angle*np.pi/180) + shifty*np.cos(angle*np.pi/180)
             shiftlist.append((xshift_old/1e3,yshift_old/1e3)) #change unit to radian
