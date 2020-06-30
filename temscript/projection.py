@@ -1,6 +1,3 @@
-# from comtypes.gen import TEMScripting
-# from .enums import *
-# from comtypes.safearray import safearray_as_ndarray
 import numpy as np
 import logging
 

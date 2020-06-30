@@ -1,17 +1,21 @@
 #!/usr/bin/env python3
 
 import numpy as np
+from temscript import instrument as instrument
+instrument = instrument.Instrument()
+instrument.projection.diffractionShift(value=[4, 5])
+diff = instrument.projection.diffractionShift()
 
 if __name__ == "__main__":
 
-    from launch.modules.temscript import instrument as instrument
+    from temscript import instrument as instrument
 
     #import instrument
-    from launch.modules.temscript import enums
+    from temscript import enums
     import logging
     import pickle
     import utilities
-    import matplotlib.pyplot as plt
+    # import matplotlib.pyplot as plt
 
     logging.basicConfig(level=logging.INFO)
 
@@ -28,8 +32,8 @@ if __name__ == "__main__":
     # print(instrument.acquisition.stemDetectors())
 
     #print(instrument.vacuum.runBufferCycle())
-    # instrument.projection.mode(ProjMode.Imaging.value)
-    #instrument.projection.defocus(1e-8)
+    instrument.projection.mode(ProjMode.Imaging.value)
+    instrument.projection.defocus(1e-8)
 
 
     # need to chedk
